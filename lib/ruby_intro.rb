@@ -36,15 +36,23 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  return "Hello, " + name;
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  #first checks if the first letter is a consonant: \A[aeiouy]
+  # then, checks for empty strings: ^$
+  # finally, checks if thr first letter is a non-word characters: \A\W
+  # 'i' in the end makes the expression case insensitive
+  return (s =~ /\A[aeiouy]|^$|\A\W/i)?false:true;
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  # first, checks if the string is empty or contains letters: invalid binary
+  # any binary number that is a multiple of 4 should have 00 LSM.
+  # So it doesn't matter how many 0-1 comes at the left: [0-1]{0,}
+  # we need exactly one zero at the right-most bit and the char before that should be wither nothing or zero: 0?0$
+  return (s =~ /^$|\D/)?false:((s =~ /[0-1]{0,}0?0$/)?true:false);
 end
 
 # Part 3
