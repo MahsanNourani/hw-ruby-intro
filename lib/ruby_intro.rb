@@ -3,15 +3,34 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  @sum = 0;
+  (0...arr.length).each do |i|
+    @sum += arr[i];
+  end
+  #returns 0 if the array was empty.
+  return @sum;
 end
 
+
 def max_2_sum arr
-  # YOUR CODE HERE
+  #sort descending - if array empty, it is still empty after sort.
+  arr.sort! {|x, y| y <=> x};
+  #check the conditions 0 or 1 elemnt arrays using conditional operators.
+  return ((arr[0]==nil)?0:arr[0]) + ((arr[1]==nil)?0:arr[1]);
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  (0...arr.length).each do |i|
+    (0...arr.length).each do |j|
+      if (i==j) 
+        next;
+      end
+      if (arr[i] + arr[j] == n)
+        return true
+      end
+    end
+  end
+  return false;
 end
 
 # Part 2
@@ -30,6 +49,6 @@ end
 
 # Part 3
 
-class BookInStock
-# YOUR CODE HERE
-end
+# class BookInStock
+# # YOUR CODE HERE
+# end
