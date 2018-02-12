@@ -57,6 +57,22 @@ end
 
 # Part 3
 
-# class BookInStock
-# # YOUR CODE HERE
-# end
+class BookInStock
+# YOUR CODE HERE
+  def initialize (isbn, price)
+    unless isbn.is_a?(String) and !isbn.empty? and price > 0
+      raise ArgumentError.new("These input values are not valid!");
+    end
+      
+    @isbn = isbn;
+    @price = price;
+  end
+  attr_reader :price, :isbn;
+  attr_writer :price, :isbn;
+  
+  def price_as_string()
+    #prints the price up to 2 floating digits and rounds up!
+    return "$%.2f" % price;
+  end
+  
+end
